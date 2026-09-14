@@ -9,11 +9,10 @@ services:
     name: escalation-tracking-dashboard
     runtime: node
     plan: free
-    buildCommand: npm install && npx drizzle-kit push && npm run build
+    buildCommand: npm install && npm run build
+    preDeployCommand: npx drizzle-kit push
     startCommand: npm run start
     envVars:
-      - key: NODE_VERSION
-        value: 20.18.0
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
