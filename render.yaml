@@ -1,7 +1,6 @@
 databases:
   - name: escalation-db
     databaseName: app_db
-    user: postgres
     plan: free
 
 services:
@@ -10,8 +9,7 @@ services:
     runtime: node
     plan: free
     buildCommand: npm install && npm run build
-    preDeployCommand: npx drizzle-kit push
-    startCommand: npm run start
+    startCommand: npx drizzle-kit push && npm run start
     envVars:
       - key: NODE_ENV
         value: production
